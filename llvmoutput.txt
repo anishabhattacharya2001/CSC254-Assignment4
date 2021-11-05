@@ -1,0 +1,162 @@
+hello:	file format elf64-x86-64
+
+.debug_info contents:
+0x00000000: Compile Unit: length = 0x00000123, format = DWARF32, version = 0x0005, unit_type = DW_UT_compile, abbr_offset = 0x0000, addr_size = 0x08 (next unit at 0x00000127)
+
+0x0000000c: DW_TAG_compile_unit
+              DW_AT_producer	("GNU C17 11.2.1 20210728 (Red Hat 11.2.1-1) -mtune=generic -march=x86-64 -g3")
+              DW_AT_language	(DW_LANG_C11)
+              DW_AT_name	("hello.c")
+              DW_AT_comp_dir	("/u/abhatta9/CSC254-Assignment4")
+              DW_AT_low_pc	(0x0000000000401126)
+              DW_AT_high_pc	(0x00000000004011ed)
+              DW_AT_stmt_list	(0x00000000)
+              DW_AT_macros	(0x00000000)
+
+0x00000032:   DW_TAG_base_type
+                DW_AT_byte_size	(0x08)
+                DW_AT_encoding	(DW_ATE_unsigned)
+                DW_AT_name	("long unsigned int")
+
+0x00000039:   DW_TAG_base_type
+                DW_AT_byte_size	(0x04)
+                DW_AT_encoding	(DW_ATE_unsigned)
+                DW_AT_name	("unsigned int")
+
+0x00000040:   DW_TAG_base_type
+                DW_AT_byte_size	(0x01)
+                DW_AT_encoding	(DW_ATE_unsigned_char)
+                DW_AT_name	("unsigned char")
+
+0x00000047:   DW_TAG_base_type
+                DW_AT_byte_size	(0x02)
+                DW_AT_encoding	(DW_ATE_unsigned)
+                DW_AT_name	("short unsigned int")
+
+0x0000004e:   DW_TAG_base_type
+                DW_AT_byte_size	(0x01)
+                DW_AT_encoding	(DW_ATE_signed_char)
+                DW_AT_name	("signed char")
+
+0x00000055:   DW_TAG_base_type
+                DW_AT_byte_size	(0x02)
+                DW_AT_encoding	(DW_ATE_signed)
+                DW_AT_name	("short int")
+
+0x0000005c:   DW_TAG_base_type
+                DW_AT_byte_size	(0x04)
+                DW_AT_encoding	(DW_ATE_signed)
+                DW_AT_name	("int")
+
+0x00000063:   DW_TAG_base_type
+                DW_AT_byte_size	(0x08)
+                DW_AT_encoding	(DW_ATE_signed)
+                DW_AT_name	("long int")
+
+0x0000006a:   DW_TAG_base_type
+                DW_AT_byte_size	(0x01)
+                DW_AT_encoding	(DW_ATE_signed_char)
+                DW_AT_name	("char")
+
+0x00000071:   DW_TAG_const_type
+                DW_AT_type	(0x0000006a "char")
+
+0x00000076:   DW_TAG_subprogram
+                DW_AT_external	(true)
+                DW_AT_name	("printf")
+                DW_AT_decl_file	("/usr/include/stdio.h")
+                DW_AT_decl_line	(332)
+                DW_AT_decl_column	(0x0c)
+                DW_AT_prototyped	(true)
+                DW_AT_type	(0x0000005c "int")
+                DW_AT_declaration	(true)
+                DW_AT_sibling	(0x0000008e)
+
+0x00000087:     DW_TAG_formal_parameter
+                  DW_AT_type	(0x0000008e "const char*")
+
+0x0000008c:     DW_TAG_unspecified_parameters
+
+0x0000008d:     NULL
+
+0x0000008e:   DW_TAG_pointer_type
+                DW_AT_byte_size	(0x08)
+                DW_AT_type	(0x00000071 "const char")
+
+0x00000094:   DW_TAG_subprogram
+                DW_AT_external	(true)
+                DW_AT_name	("fibonacci")
+                DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
+                DW_AT_decl_line	(25)
+                DW_AT_decl_column	(5)
+                DW_AT_prototyped	(true)
+                DW_AT_type	(0x0000005c "int")
+                DW_AT_low_pc	(0x00000000004011a3)
+                DW_AT_high_pc	(0x00000000004011ed)
+                DW_AT_frame_base	(DW_OP_call_frame_cfa)
+                DW_AT_call_all_tail_calls	(true)
+                DW_AT_sibling	(0x000000c2)
+
+0x000000b4:     DW_TAG_formal_parameter
+                  DW_AT_name	("i")
+                  DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
+                  DW_AT_decl_line	(25)
+                  DW_AT_decl_column	(0x13)
+                  DW_AT_type	(0x0000005c "int")
+                  DW_AT_location	(DW_OP_fbreg -36)
+
+0x000000c1:     NULL
+
+0x000000c2:   DW_TAG_subprogram
+                DW_AT_external	(true)
+                DW_AT_name	("factorial")
+                DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
+                DW_AT_decl_line	(14)
+                DW_AT_decl_column	(5)
+                DW_AT_prototyped	(true)
+                DW_AT_type	(0x0000005c "int")
+                DW_AT_low_pc	(0x0000000000401154)
+                DW_AT_high_pc	(0x00000000004011a3)
+                DW_AT_frame_base	(DW_OP_call_frame_cfa)
+                DW_AT_call_all_tail_calls	(true)
+                DW_AT_sibling	(0x00000108)
+
+0x000000e2:     DW_TAG_formal_parameter
+                  DW_AT_name	("number")
+                  DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
+                  DW_AT_decl_line	(14)
+                  DW_AT_decl_column	(0x13)
+                  DW_AT_type	(0x0000005c "int")
+                  DW_AT_location	(DW_OP_fbreg -36)
+
+0x000000f1:     DW_TAG_variable
+                  DW_AT_name	("i")
+                  DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
+                  DW_AT_decl_line	(15)
+                  DW_AT_decl_column	(6)
+                  DW_AT_type	(0x0000005c "int")
+                  DW_AT_location	(DW_OP_fbreg -20)
+
+0x000000fc:     DW_TAG_variable
+                  DW_AT_name	("f")
+                  DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
+                  DW_AT_decl_line	(16)
+                  DW_AT_decl_column	(6)
+                  DW_AT_type	(0x0000005c "int")
+                  DW_AT_location	(DW_OP_fbreg -24)
+
+0x00000107:     NULL
+
+0x00000108:   DW_TAG_subprogram
+                DW_AT_external	(true)
+                DW_AT_name	("main")
+                DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
+                DW_AT_decl_line	(6)
+                DW_AT_decl_column	(0x05)
+                DW_AT_type	(0x0000005c "int")
+                DW_AT_low_pc	(0x0000000000401126)
+                DW_AT_high_pc	(0x0000000000401154)
+                DW_AT_frame_base	(DW_OP_call_frame_cfa)
+                DW_AT_call_all_tail_calls	(true)
+
+0x00000126:   NULL
