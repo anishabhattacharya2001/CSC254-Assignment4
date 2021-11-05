@@ -2,6 +2,7 @@ import sys
 from subprocess import call
 import os
 import re
+import collections
 
 obj_file = open('objdumpoutput.txt', 'w')
 call(["objdump", "-d", sys.argv[1]], stdout = obj_file )
@@ -25,11 +26,54 @@ with open('llvmoutput.txt', 'r') as read_file:
         if(len(parts) > 0):
             if(hexa.match(parts[0])):
                 key = parts[0].replace('0x', '')
-                hexa_to_linenum[key] = parts[1]
-                linenum_to_hex[parts[1]] = key
+                hexa_to_linenum[key.lstrip('0')] = parts[1]
+                linenum_to_hex[parts[1]] = key.lstrip('0')
 
-                
-                
+#creating dictionary from source code of c to line number
+sourceC_to_line = {}
+i = 1
+with open('hello.c', 'r') as read_file:
+    for line in read_file:
+        sourceC_to_line[i] = line
+        i = i + 1
+        
+#print(hexa_to_linenum)
+line_to_assembly = {}
+
+# dict with line number to the assembly code
+# with open('objdumpoutput.txt', 'r') as read_file:
+#     for line in read_file:
+#         parts = line.split()
+#         if(len(parts) > 0):
+#             key = parts[0].replace(':', '')
+#             if(key in hexa_to_linenum ):
+#                 line_to_assembly[hexa_to_linenum.get(key)] = parts
+
+Assembly = {}
+with open('objdumpoutput.txt', 'r') as read_file:
+    for line in read_file:
+        parts = line.split()
+        if(len(parts) > 0):
+            # print(parts)
+            key = parts[0].replace(':', '')
+            Assembly[key] = parts
+Assembly_Addresses = sorted(Assembly)
+
+assembly_Array = [[]]
+
+# print(hexa_to_linenum)
+
+for key in hexa_to_linenum:
+    print(key)
+
+
+cSource_to_Assembly = {}
+for key in line_to_assembly :
+    cSource_to_Assembly[key] = line_to_assembly[key] 
+
+result = {}
+
+
         
         
     
