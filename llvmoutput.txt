@@ -1,162 +1,144 @@
 hello:	file format elf64-x86-64
 
-.debug_info contents:
-0x00000000: Compile Unit: length = 0x00000123, format = DWARF32, version = 0x0005, unit_type = DW_UT_compile, abbr_offset = 0x0000, addr_size = 0x08 (next unit at 0x00000127)
+.debug_line contents:
+debug_line[0x00000000]
+Line table prologue:
+    total_length: 0x00000126
+          format: DWARF32
+         version: 5
+    address_size: 8
+ seg_select_size: 0
+ prologue_length: 0x000000ba
+ min_inst_length: 1
+max_ops_per_inst: 1
+ default_is_stmt: 1
+       line_base: -5
+      line_range: 14
+     opcode_base: 13
+standard_opcode_lengths[DW_LNS_copy] = 0
+standard_opcode_lengths[DW_LNS_advance_pc] = 1
+standard_opcode_lengths[DW_LNS_advance_line] = 1
+standard_opcode_lengths[DW_LNS_set_file] = 1
+standard_opcode_lengths[DW_LNS_set_column] = 1
+standard_opcode_lengths[DW_LNS_negate_stmt] = 0
+standard_opcode_lengths[DW_LNS_set_basic_block] = 0
+standard_opcode_lengths[DW_LNS_const_add_pc] = 0
+standard_opcode_lengths[DW_LNS_fixed_advance_pc] = 1
+standard_opcode_lengths[DW_LNS_set_prologue_end] = 0
+standard_opcode_lengths[DW_LNS_set_epilogue_begin] = 0
+standard_opcode_lengths[DW_LNS_set_isa] = 1
+include_directories[  0] = "/u/abhatta9/CSC254-Assignment4"
+include_directories[  1] = "/usr/include"
+include_directories[  2] = "/usr/include/bits"
+include_directories[  3] = "/usr/include/sys"
+include_directories[  4] = "/usr/include/gnu"
+include_directories[  5] = "/usr/lib/gcc/x86_64-redhat-linux/11/include"
+include_directories[  6] = "/usr/include/bits/types"
+file_names[  0]:
+           name: "hello.c"
+      dir_index: 0
+file_names[  1]:
+           name: "hello.c"
+      dir_index: 0
+file_names[  2]:
+           name: "stdio.h"
+      dir_index: 1
+file_names[  3]:
+           name: "stdc-predef.h"
+      dir_index: 1
+file_names[  4]:
+           name: "libc-header-start.h"
+      dir_index: 2
+file_names[  5]:
+           name: "features.h"
+      dir_index: 1
+file_names[  6]:
+           name: "cdefs.h"
+      dir_index: 3
+file_names[  7]:
+           name: "wordsize.h"
+      dir_index: 2
+file_names[  8]:
+           name: "long-double.h"
+      dir_index: 2
+file_names[  9]:
+           name: "stubs.h"
+      dir_index: 4
+file_names[ 10]:
+           name: "stubs-64.h"
+      dir_index: 4
+file_names[ 11]:
+           name: "stddef.h"
+      dir_index: 5
+file_names[ 12]:
+           name: "stdarg.h"
+      dir_index: 5
+file_names[ 13]:
+           name: "types.h"
+      dir_index: 2
+file_names[ 14]:
+           name: "timesize.h"
+      dir_index: 2
+file_names[ 15]:
+           name: "typesizes.h"
+      dir_index: 2
+file_names[ 16]:
+           name: "time64.h"
+      dir_index: 2
+file_names[ 17]:
+           name: "__fpos_t.h"
+      dir_index: 6
+file_names[ 18]:
+           name: "__mbstate_t.h"
+      dir_index: 6
+file_names[ 19]:
+           name: "__fpos64_t.h"
+      dir_index: 6
+file_names[ 20]:
+           name: "__FILE.h"
+      dir_index: 6
+file_names[ 21]:
+           name: "FILE.h"
+      dir_index: 6
+file_names[ 22]:
+           name: "struct_FILE.h"
+      dir_index: 6
+file_names[ 23]:
+           name: "stdio_lim.h"
+      dir_index: 2
+file_names[ 24]:
+           name: "floatn.h"
+      dir_index: 2
+file_names[ 25]:
+           name: "floatn-common.h"
+      dir_index: 2
 
-0x0000000c: DW_TAG_compile_unit
-              DW_AT_producer	("GNU C17 11.2.1 20210728 (Red Hat 11.2.1-1) -mtune=generic -march=x86-64 -g3")
-              DW_AT_language	(DW_LANG_C11)
-              DW_AT_name	("hello.c")
-              DW_AT_comp_dir	("/u/abhatta9/CSC254-Assignment4")
-              DW_AT_low_pc	(0x0000000000401126)
-              DW_AT_high_pc	(0x00000000004011ed)
-              DW_AT_stmt_list	(0x00000000)
-              DW_AT_macros	(0x00000000)
+Address            Line   Column File   ISA Discriminator Flags
+------------------ ------ ------ ------ --- ------------- -------------
+0x0000000000401126      6     12      1   0             0  is_stmt
+0x000000000040112a      7      4      1   0             0  is_stmt
+0x0000000000401139      8      4      1   0             0  is_stmt
+0x0000000000401143      9      4      1   0             0  is_stmt
+0x000000000040114d     10     11      1   0             0  is_stmt
+0x0000000000401152     11      1      1   0             0  is_stmt
+0x0000000000401154     14     26      1   0             0  is_stmt
+0x000000000040115f     16      6      1   0             0  is_stmt
+0x0000000000401166     17     10      1   0             0  is_stmt
+0x000000000040116d     17      5      1   0             0  is_stmt
+0x000000000040116f     18      8      1   0             3  is_stmt
+0x0000000000401179     17     24      1   0             3  is_stmt
+0x000000000040117d     17     14      1   0             1  is_stmt
+0x0000000000401185     20      3      1   0             0  is_stmt
+0x000000000040119c     21      8      1   0             0  is_stmt
+0x00000000004011a1     22      1      1   0             0  is_stmt
+0x00000000004011a3     25     22      1   0             0  is_stmt
+0x00000000004011af     26      6      1   0             0  is_stmt
+0x00000000004011b5     27     14      1   0             0  is_stmt
+0x00000000004011bc     29      6      1   0             0  is_stmt
+0x00000000004011c2     30     14      1   0             0  is_stmt
+0x00000000004011c9     32     11      1   0             0  is_stmt
+0x00000000004011d8     32     28      1   0             0  is_stmt
+0x00000000004011e5     32     26      1   0             0  is_stmt
+0x00000000004011e7     33      1      1   0             0  is_stmt
+0x00000000004011ed     33      1      1   0             0  is_stmt end_sequence
 
-0x00000032:   DW_TAG_base_type
-                DW_AT_byte_size	(0x08)
-                DW_AT_encoding	(DW_ATE_unsigned)
-                DW_AT_name	("long unsigned int")
-
-0x00000039:   DW_TAG_base_type
-                DW_AT_byte_size	(0x04)
-                DW_AT_encoding	(DW_ATE_unsigned)
-                DW_AT_name	("unsigned int")
-
-0x00000040:   DW_TAG_base_type
-                DW_AT_byte_size	(0x01)
-                DW_AT_encoding	(DW_ATE_unsigned_char)
-                DW_AT_name	("unsigned char")
-
-0x00000047:   DW_TAG_base_type
-                DW_AT_byte_size	(0x02)
-                DW_AT_encoding	(DW_ATE_unsigned)
-                DW_AT_name	("short unsigned int")
-
-0x0000004e:   DW_TAG_base_type
-                DW_AT_byte_size	(0x01)
-                DW_AT_encoding	(DW_ATE_signed_char)
-                DW_AT_name	("signed char")
-
-0x00000055:   DW_TAG_base_type
-                DW_AT_byte_size	(0x02)
-                DW_AT_encoding	(DW_ATE_signed)
-                DW_AT_name	("short int")
-
-0x0000005c:   DW_TAG_base_type
-                DW_AT_byte_size	(0x04)
-                DW_AT_encoding	(DW_ATE_signed)
-                DW_AT_name	("int")
-
-0x00000063:   DW_TAG_base_type
-                DW_AT_byte_size	(0x08)
-                DW_AT_encoding	(DW_ATE_signed)
-                DW_AT_name	("long int")
-
-0x0000006a:   DW_TAG_base_type
-                DW_AT_byte_size	(0x01)
-                DW_AT_encoding	(DW_ATE_signed_char)
-                DW_AT_name	("char")
-
-0x00000071:   DW_TAG_const_type
-                DW_AT_type	(0x0000006a "char")
-
-0x00000076:   DW_TAG_subprogram
-                DW_AT_external	(true)
-                DW_AT_name	("printf")
-                DW_AT_decl_file	("/usr/include/stdio.h")
-                DW_AT_decl_line	(332)
-                DW_AT_decl_column	(0x0c)
-                DW_AT_prototyped	(true)
-                DW_AT_type	(0x0000005c "int")
-                DW_AT_declaration	(true)
-                DW_AT_sibling	(0x0000008e)
-
-0x00000087:     DW_TAG_formal_parameter
-                  DW_AT_type	(0x0000008e "const char*")
-
-0x0000008c:     DW_TAG_unspecified_parameters
-
-0x0000008d:     NULL
-
-0x0000008e:   DW_TAG_pointer_type
-                DW_AT_byte_size	(0x08)
-                DW_AT_type	(0x00000071 "const char")
-
-0x00000094:   DW_TAG_subprogram
-                DW_AT_external	(true)
-                DW_AT_name	("fibonacci")
-                DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
-                DW_AT_decl_line	(25)
-                DW_AT_decl_column	(5)
-                DW_AT_prototyped	(true)
-                DW_AT_type	(0x0000005c "int")
-                DW_AT_low_pc	(0x00000000004011a3)
-                DW_AT_high_pc	(0x00000000004011ed)
-                DW_AT_frame_base	(DW_OP_call_frame_cfa)
-                DW_AT_call_all_tail_calls	(true)
-                DW_AT_sibling	(0x000000c2)
-
-0x000000b4:     DW_TAG_formal_parameter
-                  DW_AT_name	("i")
-                  DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
-                  DW_AT_decl_line	(25)
-                  DW_AT_decl_column	(0x13)
-                  DW_AT_type	(0x0000005c "int")
-                  DW_AT_location	(DW_OP_fbreg -36)
-
-0x000000c1:     NULL
-
-0x000000c2:   DW_TAG_subprogram
-                DW_AT_external	(true)
-                DW_AT_name	("factorial")
-                DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
-                DW_AT_decl_line	(14)
-                DW_AT_decl_column	(5)
-                DW_AT_prototyped	(true)
-                DW_AT_type	(0x0000005c "int")
-                DW_AT_low_pc	(0x0000000000401154)
-                DW_AT_high_pc	(0x00000000004011a3)
-                DW_AT_frame_base	(DW_OP_call_frame_cfa)
-                DW_AT_call_all_tail_calls	(true)
-                DW_AT_sibling	(0x00000108)
-
-0x000000e2:     DW_TAG_formal_parameter
-                  DW_AT_name	("number")
-                  DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
-                  DW_AT_decl_line	(14)
-                  DW_AT_decl_column	(0x13)
-                  DW_AT_type	(0x0000005c "int")
-                  DW_AT_location	(DW_OP_fbreg -36)
-
-0x000000f1:     DW_TAG_variable
-                  DW_AT_name	("i")
-                  DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
-                  DW_AT_decl_line	(15)
-                  DW_AT_decl_column	(6)
-                  DW_AT_type	(0x0000005c "int")
-                  DW_AT_location	(DW_OP_fbreg -20)
-
-0x000000fc:     DW_TAG_variable
-                  DW_AT_name	("f")
-                  DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
-                  DW_AT_decl_line	(16)
-                  DW_AT_decl_column	(6)
-                  DW_AT_type	(0x0000005c "int")
-                  DW_AT_location	(DW_OP_fbreg -24)
-
-0x00000107:     NULL
-
-0x00000108:   DW_TAG_subprogram
-                DW_AT_external	(true)
-                DW_AT_name	("main")
-                DW_AT_decl_file	("/u/abhatta9/CSC254-Assignment4/hello.c")
-                DW_AT_decl_line	(6)
-                DW_AT_decl_column	(0x05)
-                DW_AT_type	(0x0000005c "int")
-                DW_AT_low_pc	(0x0000000000401126)
-                DW_AT_high_pc	(0x0000000000401154)
-                DW_AT_frame_base	(DW_OP_call_frame_cfa)
-                DW_AT_call_all_tail_calls	(true)
-
-0x00000126:   NULL
