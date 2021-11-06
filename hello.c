@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "hello2.h"
 
 int factorial(int number);
 int fibonacci(int i);
@@ -7,6 +8,8 @@ int main() {
    printf("Hello, world!");
    factorial(10);
    fibonacci(10);
+   int maxval = max(10, 20);
+   int sum = add(10, 20);
    return 0;
 }
 

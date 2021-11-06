@@ -3,12 +3,67 @@ hello:	file format elf64-x86-64
 .debug_line contents:
 debug_line[0x00000000]
 Line table prologue:
-    total_length: 0x00000126
+    total_length: 0x0000006a
           format: DWARF32
          version: 5
     address_size: 8
  seg_select_size: 0
- prologue_length: 0x000000ba
+ prologue_length: 0x00000038
+ min_inst_length: 1
+max_ops_per_inst: 1
+ default_is_stmt: 1
+       line_base: -5
+      line_range: 14
+     opcode_base: 13
+standard_opcode_lengths[DW_LNS_copy] = 0
+standard_opcode_lengths[DW_LNS_advance_pc] = 1
+standard_opcode_lengths[DW_LNS_advance_line] = 1
+standard_opcode_lengths[DW_LNS_set_file] = 1
+standard_opcode_lengths[DW_LNS_set_column] = 1
+standard_opcode_lengths[DW_LNS_negate_stmt] = 0
+standard_opcode_lengths[DW_LNS_set_basic_block] = 0
+standard_opcode_lengths[DW_LNS_const_add_pc] = 0
+standard_opcode_lengths[DW_LNS_fixed_advance_pc] = 1
+standard_opcode_lengths[DW_LNS_set_prologue_end] = 0
+standard_opcode_lengths[DW_LNS_set_epilogue_begin] = 0
+standard_opcode_lengths[DW_LNS_set_isa] = 1
+include_directories[  0] = "/u/abhatta9/CSC254-Assignment4"
+include_directories[  1] = "/usr/include"
+file_names[  0]:
+           name: "hello2.c"
+      dir_index: 0
+file_names[  1]:
+           name: "hello2.c"
+      dir_index: 0
+file_names[  2]:
+           name: "stdc-predef.h"
+      dir_index: 1
+file_names[  3]:
+           name: "hello2.h"
+      dir_index: 0
+
+Address            Line   Column File   ISA Discriminator Flags
+------------------ ------ ------ ------ --- ------------- -------------
+0x0000000000401126      3     29      1   0             0  is_stmt
+0x0000000000401130      5      7      1   0             0  is_stmt
+0x0000000000401138      6     14      1   0             0  is_stmt
+0x0000000000401140      8     14      1   0             0  is_stmt
+0x0000000000401146      9     11      1   0             0  is_stmt
+0x0000000000401149     10      1      1   0             0  is_stmt
+0x000000000040114b     12      1      1   0             0  is_stmt
+0x0000000000401155     13      9      1   0             0  is_stmt
+0x0000000000401160     14     12      1   0             0  is_stmt
+0x0000000000401163     15      1      1   0             0  is_stmt
+0x0000000000401165     15      1      1   0             0  is_stmt end_sequence
+
+debug_line[0x0000006e]
+Line table prologue:
+    total_length: 0x00000133
+          format: DWARF32
+         version: 5
+    address_size: 8
+ seg_select_size: 0
+ prologue_length: 0x000000bf
  min_inst_length: 1
 max_ops_per_inst: 1
  default_is_stmt: 1
@@ -41,104 +96,109 @@ file_names[  1]:
            name: "hello.c"
       dir_index: 0
 file_names[  2]:
+           name: "hello2.h"
+      dir_index: 0
+file_names[  3]:
            name: "stdio.h"
       dir_index: 1
-file_names[  3]:
+file_names[  4]:
            name: "stdc-predef.h"
       dir_index: 1
-file_names[  4]:
+file_names[  5]:
            name: "libc-header-start.h"
       dir_index: 2
-file_names[  5]:
+file_names[  6]:
            name: "features.h"
       dir_index: 1
-file_names[  6]:
+file_names[  7]:
            name: "cdefs.h"
       dir_index: 3
-file_names[  7]:
+file_names[  8]:
            name: "wordsize.h"
       dir_index: 2
-file_names[  8]:
+file_names[  9]:
            name: "long-double.h"
       dir_index: 2
-file_names[  9]:
+file_names[ 10]:
            name: "stubs.h"
       dir_index: 4
-file_names[ 10]:
+file_names[ 11]:
            name: "stubs-64.h"
       dir_index: 4
-file_names[ 11]:
+file_names[ 12]:
            name: "stddef.h"
       dir_index: 5
-file_names[ 12]:
+file_names[ 13]:
            name: "stdarg.h"
       dir_index: 5
-file_names[ 13]:
+file_names[ 14]:
            name: "types.h"
       dir_index: 2
-file_names[ 14]:
+file_names[ 15]:
            name: "timesize.h"
       dir_index: 2
-file_names[ 15]:
+file_names[ 16]:
            name: "typesizes.h"
       dir_index: 2
-file_names[ 16]:
+file_names[ 17]:
            name: "time64.h"
       dir_index: 2
-file_names[ 17]:
+file_names[ 18]:
            name: "__fpos_t.h"
       dir_index: 6
-file_names[ 18]:
+file_names[ 19]:
            name: "__mbstate_t.h"
       dir_index: 6
-file_names[ 19]:
+file_names[ 20]:
            name: "__fpos64_t.h"
       dir_index: 6
-file_names[ 20]:
+file_names[ 21]:
            name: "__FILE.h"
       dir_index: 6
-file_names[ 21]:
+file_names[ 22]:
            name: "FILE.h"
       dir_index: 6
-file_names[ 22]:
+file_names[ 23]:
            name: "struct_FILE.h"
       dir_index: 6
-file_names[ 23]:
+file_names[ 24]:
            name: "stdio_lim.h"
       dir_index: 2
-file_names[ 24]:
+file_names[ 25]:
            name: "floatn.h"
       dir_index: 2
-file_names[ 25]:
+file_names[ 26]:
            name: "floatn-common.h"
       dir_index: 2
 
 Address            Line   Column File   ISA Discriminator Flags
 ------------------ ------ ------ ------ --- ------------- -------------
-0x0000000000401126      6     12      1   0             0  is_stmt
-0x000000000040112a      7      4      1   0             0  is_stmt
-0x0000000000401139      8      4      1   0             0  is_stmt
-0x0000000000401143      9      4      1   0             0  is_stmt
-0x000000000040114d     10     11      1   0             0  is_stmt
-0x0000000000401152     11      1      1   0             0  is_stmt
-0x0000000000401154     14     26      1   0             0  is_stmt
-0x000000000040115f     16      6      1   0             0  is_stmt
-0x0000000000401166     17     10      1   0             0  is_stmt
-0x000000000040116d     17      5      1   0             0  is_stmt
-0x000000000040116f     18      8      1   0             3  is_stmt
-0x0000000000401179     17     24      1   0             3  is_stmt
-0x000000000040117d     17     14      1   0             1  is_stmt
-0x0000000000401185     20      3      1   0             0  is_stmt
-0x000000000040119c     21      8      1   0             0  is_stmt
-0x00000000004011a1     22      1      1   0             0  is_stmt
-0x00000000004011a3     25     22      1   0             0  is_stmt
-0x00000000004011af     26      6      1   0             0  is_stmt
-0x00000000004011b5     27     14      1   0             0  is_stmt
-0x00000000004011bc     29      6      1   0             0  is_stmt
-0x00000000004011c2     30     14      1   0             0  is_stmt
-0x00000000004011c9     32     11      1   0             0  is_stmt
-0x00000000004011d8     32     28      1   0             0  is_stmt
-0x00000000004011e5     32     26      1   0             0  is_stmt
-0x00000000004011e7     33      1      1   0             0  is_stmt
-0x00000000004011ed     33      1      1   0             0  is_stmt end_sequence
+0x0000000000401165      7     12      1   0             0  is_stmt
+0x000000000040116d      8      4      1   0             0  is_stmt
+0x000000000040117c      9      4      1   0             0  is_stmt
+0x0000000000401186     10      4      1   0             0  is_stmt
+0x0000000000401190     11     17      1   0             0  is_stmt
+0x00000000004011a2     12     14      1   0             0  is_stmt
+0x00000000004011b4     13     11      1   0             0  is_stmt
+0x00000000004011b9     14      1      1   0             0  is_stmt
+0x00000000004011bb     17     26      1   0             0  is_stmt
+0x00000000004011c6     19      6      1   0             0  is_stmt
+0x00000000004011cd     20     10      1   0             0  is_stmt
+0x00000000004011d4     20      5      1   0             0  is_stmt
+0x00000000004011d6     21      8      1   0             3  is_stmt
+0x00000000004011e0     20     24      1   0             3  is_stmt
+0x00000000004011e4     20     14      1   0             1  is_stmt
+0x00000000004011ec     23      3      1   0             0  is_stmt
+0x0000000000401203     24      8      1   0             0  is_stmt
+0x0000000000401208     25      1      1   0             0  is_stmt
+0x000000000040120a     28     22      1   0             0  is_stmt
+0x0000000000401216     29      6      1   0             0  is_stmt
+0x000000000040121c     30     14      1   0             0  is_stmt
+0x0000000000401223     32      6      1   0             0  is_stmt
+0x0000000000401229     33     14      1   0             0  is_stmt
+0x0000000000401230     35     11      1   0             0  is_stmt
+0x000000000040123f     35     28      1   0             0  is_stmt
+0x000000000040124c     35     26      1   0             0  is_stmt
+0x000000000040124e     36      1      1   0             0  is_stmt
+0x0000000000401254     36      1      1   0             0  is_stmt end_sequence
 
