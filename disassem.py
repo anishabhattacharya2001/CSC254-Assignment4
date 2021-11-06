@@ -28,7 +28,7 @@ with open('llvmoutput.txt', 'r') as read_file:
                 key = parts[0].replace('0x', '')
                 hexa_to_linenum[key.lstrip('0')] = parts[1]
                 linenum_to_hex[parts[1]] = key.lstrip('0')
-
+list_hexa = sorted(hexa_to_linenum)
 #creating dictionary from source code of c to line number
 sourceC_to_line = {}
 i = 1
@@ -59,19 +59,19 @@ with open('objdumpoutput.txt', 'r') as read_file:
             Assembly[key] = parts
 Assembly_Addresses = sorted(Assembly)
 
-assembly_Array = [[]]
-
-# print(hexa_to_linenum)
-
-for key in hexa_to_linenum:
-    print(key)
-
-
+# dict for souce to assembly 
 cSource_to_Assembly = {}
 for key in line_to_assembly :
     cSource_to_Assembly[key] = line_to_assembly[key] 
 
-result = {}
+
+assembly_Array = []
+
+for i in range( len(list_hexa) - 1 ):
+    nlist = [list_hexa[i], list_hexa[i + 1], hexa_to_linenum.get(list_hexa[i]) ]
+    assembly_Array.append(nlist)
+
+
 
 
         
