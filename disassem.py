@@ -3,6 +3,11 @@ from subprocess import call
 import os
 import re
 import collections
+import datetime
+
+#find time taken to run
+running = str(datetime.datetime.now())
+
 
 obj_file = open('objdumpoutput.txt', 'w')
 call(["objdump", "-d", sys.argv[1]], stdout = obj_file )
@@ -99,6 +104,7 @@ with open('hello.c', 'r') as read_file:
 
 
 # # FINAL C CODE to Assembly code 
+# code : list of list of list
 Final_C_to_Assembly = {}
 i = 1
 with open('hello.c', 'r') as read_file:
@@ -115,7 +121,7 @@ with open('hello.c', 'r') as read_file:
             Final_C_to_Assembly[line_to_cCode.get(i)] = answer
         i = i + 1   
         
-# print(Final_C_to_Assembly) 
+print(Final_C_to_Assembly) 
 
 
 _file = open('output.txt', 'w')
@@ -128,3 +134,55 @@ for key in Final_C_to_Assembly:
     _file.write('\n')
     _file.write('\n')
 _file.close()
+
+# Function to convert   
+def listToString(lis):    
+    s = ""  
+    for ele in lis:  
+        s += ele
+        s += " "        
+    return s
+
+path = os.path.dirname(os.path.realpath(__file__))
+
+# <hr><br><br>
+#         <strong>Run Time: </strong>"""+timeRan+"""<br>
+#         <strong>Location: </strong>"""+path+ """<br>
+#     <br><br>
+
+#<style>table, th, td {border:1px solid black;}</style>
+#indexFile.write("<html><head><title>CSC254</title></head><body><h1>Disassemble<h1><table style="width:100%"><tr><th>Source</th><th>Assessmbly</th></tr></table></body></html>")
+
+
+fileout = open("html-table.html", "w")
+
+htmlcode = "<html> \n <style>\n"
+htmlcode += "table, th, td {border:1px solid black;}\n </style>"
+htmlcode += "<body>\n <h1>Disassemble<h1>"
+
+# Create table
+table = "<table style=\"width:100%\">"
+table += "  <tr>\n"
+table += "  <th>source</th>\n"
+table += "  <th>assembly</th>\n"
+table += "  </tr>\n"
+ 
+
+for key, value in Final_C_to_Assembly.items():
+    table += " <tr> \n"
+    table += "  <td>"+key+" </td> \n"
+    ass = " <td>"
+    for assemblyLineList in value:
+        ass += listToString(assemblyLineList)
+        print( "ASS IS "+ass)
+        ass += '\n<br>'
+    ass += "</td>"
+    table += ass
+    table += "  </tr>\n"
+
+table += "</table>"
+
+htmlcode += table
+htmlcode += "</body> \n </html>"
+fileout.writelines(htmlcode)
+fileout.close()

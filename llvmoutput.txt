@@ -1,4 +1,4 @@
-tata:	file format elf64-x86-64
+hello:	file format elf64-x86-64
 
 .debug_line contents:
 debug_line[0x00000000]
@@ -27,7 +27,7 @@ standard_opcode_lengths[DW_LNS_fixed_advance_pc] = 1
 standard_opcode_lengths[DW_LNS_set_prologue_end] = 0
 standard_opcode_lengths[DW_LNS_set_epilogue_begin] = 0
 standard_opcode_lengths[DW_LNS_set_isa] = 1
-include_directories[  0] = "/u/psaini2/CSC254_Project4/CSC254-Assignment4"
+include_directories[  0] = "/u/abhatta9/CSC254-Assignment4"
 include_directories[  1] = "/usr/include"
 include_directories[  2] = "/usr/include/bits"
 include_directories[  3] = "/usr/include/sys"
