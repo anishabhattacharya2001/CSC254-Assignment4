@@ -88,6 +88,16 @@ for key in assembly_Array :
 
 
 
+line_to_cCode = {}
+i = 1
+with open('hello.c', 'r') as read_file:
+    for line in read_file:
+        if(line != '\n'):
+             line_to_cCode[i] = line
+        i = i + 1 
+
+
+
 # # FINAL C CODE to Assembly code 
 Final_C_to_Assembly = {}
 i = 1
@@ -102,7 +112,19 @@ with open('hello.c', 'r') as read_file:
             for j in range(len(list)):
                 answer.append(Assembly.get(list[j]))
         if(len(answer) != 0):
-            Final_C_to_Assembly[i] = answer
+            Final_C_to_Assembly[line_to_cCode.get(i)] = answer
         i = i + 1   
         
-print(Final_C_to_Assembly) 
+# print(Final_C_to_Assembly) 
+
+
+_file = open('output.txt', 'w')
+for key in Final_C_to_Assembly:
+    dArray = Final_C_to_Assembly.get(key)
+    li2 = [ y for x in dArray for y in x]
+    ans = ''.join(li2)
+    _file.write( key + ans)
+    _file.write('\n')
+    _file.write('\n')
+    _file.write('\n')
+_file.close()

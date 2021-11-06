@@ -1,0 +1,112 @@
+#include <stdio.h>
+No Assembly code reference found for this source
+
+
+int factorial(int number);
+No Assembly code reference found for this source
+
+
+int fibonacci(int i);
+No Assembly code reference found for this source
+
+
+int main() {
+401126:55push%rbp401127:4889e5mov%rsp,%rbp
+
+
+   printf("Hello, world!");
+40112a:bf10204000mov$0x402010,%edi40112f:b800000000mov$0x0,%eax401134:e8f7feffffcallq401030<printf@plt>
+
+
+   factorial(10);
+401139:bf0a000000mov$0xa,%edi40113e:e811000000callq401154<factorial>
+
+
+   fibonacci(10);
+401143:bf0a000000mov$0xa,%edi401148:e856000000callq4011a3<fibonacci>
+
+
+   return 0;
+40114d:b800000000mov$0x0,%eax
+
+
+}
+4011e7:488b5df8mov-0x8(%rbp),%rbx4011eb:c9leaveq4011ec:c3retq
+
+
+//this method calculates facorial of the integer sent to it
+No Assembly code reference found for this source
+
+
+int factorial(int number){    
+401154:55push%rbp401155:4889e5mov%rsp,%rbp401158:4883ec20sub$0x20,%rsp40115c:897decmov%edi,-0x14(%rbp)
+
+
+ int i;
+No Assembly code reference found for this source
+
+
+ int f = 1;  
+40115f:c745f801000000movl$0x1,-0x8(%rbp)
+
+
+    for(i=1;i<=number;i++){    
+40117d:8b45fcmov-0x4(%rbp),%eax401180:3b45eccmp-0x14(%rbp),%eax401183:7eeajle40116f<factorial+0x1b>
+
+
+      f=f*i;    
+40116f:8b45f8mov-0x8(%rbp),%eax401172:0faf45fcimul-0x4(%rbp),%eax401176:8945f8mov%eax,-0x8(%rbp)
+
+
+  }    
+No Assembly code reference found for this source
+
+
+  printf("Factorial of %d is: %d",number,f);    
+401185:8b55f8mov-0x8(%rbp),%edx401188:8b45ecmov-0x14(%rbp),%eax40118b:89c6mov%eax,%esi40118d:bf1e204000mov$0x40201e,%edi401192:b800000000mov$0x0,%eax401197:e894feffffcallq401030<printf@plt>
+
+
+return 0;  
+40119c:b800000000mov$0x0,%eax
+
+
+}  
+4011a1:c9leaveq4011a2:c3retq
+
+
+//this is a recursive program for fibonacci sequence
+No Assembly code reference found for this source
+
+
+int fibonacci(int i) {
+4011a3:55push%rbp4011a4:4889e5mov%rsp,%rbp4011a7:53push%rbx4011a8:4883ec18sub$0x18,%rsp4011ac:897decmov%edi,-0x14(%rbp)
+
+
+   if(i == 0) {
+4011af:837dec00cmpl$0x0,-0x14(%rbp)4011b3:7507jne4011bc<fibonacci+0x19>
+
+
+      return 0;
+4011b5:b800000000mov$0x0,%eax4011ba:eb2bjmp4011e7<fibonacci+0x44>
+
+
+   }	
+No Assembly code reference found for this source
+
+
+   if(i == 1) {
+4011bc:837dec01cmpl$0x1,-0x14(%rbp)4011c0:7507jne4011c9<fibonacci+0x26>
+
+
+      return 1;
+4011c2:b801000000mov$0x1,%eax4011c7:eb1ejmp4011e7<fibonacci+0x44>
+
+
+   }
+No Assembly code reference found for this source
+
+
+   return fibonacci(i-1) + fibonacci(i-2);
+4011e5:01d8add%ebx,%eax
+
+
