@@ -37,9 +37,9 @@ Disassembly of section .text:
   40104d:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
   401051:	50                   	push   %rax
   401052:	54                   	push   %rsp
-  401053:	49 c7 c0 d0 12 40 00 	mov    $0x4012d0,%r8
-  40105a:	48 c7 c1 60 12 40 00 	mov    $0x401260,%rcx
-  401061:	48 c7 c7 65 11 40 00 	mov    $0x401165,%rdi
+  401053:	49 c7 c0 c0 12 40 00 	mov    $0x4012c0,%r8
+  40105a:	48 c7 c1 50 12 40 00 	mov    $0x401250,%rcx
+  401061:	48 c7 c7 26 11 40 00 	mov    $0x401126,%rdi
   401068:	ff 15 82 2f 00 00    	callq  *0x2f82(%rip)        # 403ff0 <__libc_start_main@GLIBC_2.2.5>
   40106e:	f4                   	hlt    
 
@@ -109,161 +109,156 @@ Disassembly of section .text:
   401120:	f3 0f 1e fa          	endbr64 
   401124:	eb 8a                	jmp    4010b0 <register_tm_clones>
 
-0000000000401126 <max>:
+0000000000401126 <main>:
   401126:	55                   	push   %rbp
   401127:	48 89 e5             	mov    %rsp,%rbp
-  40112a:	89 7d ec             	mov    %edi,-0x14(%rbp)
-  40112d:	89 75 e8             	mov    %esi,-0x18(%rbp)
-  401130:	8b 45 ec             	mov    -0x14(%rbp),%eax
-  401133:	3b 45 e8             	cmp    -0x18(%rbp),%eax
-  401136:	7e 08                	jle    401140 <max+0x1a>
-  401138:	8b 45 ec             	mov    -0x14(%rbp),%eax
-  40113b:	89 45 fc             	mov    %eax,-0x4(%rbp)
-  40113e:	eb 06                	jmp    401146 <max+0x20>
-  401140:	8b 45 e8             	mov    -0x18(%rbp),%eax
-  401143:	89 45 fc             	mov    %eax,-0x4(%rbp)
-  401146:	8b 45 fc             	mov    -0x4(%rbp),%eax
-  401149:	5d                   	pop    %rbp
-  40114a:	c3                   	retq   
+  40112a:	48 83 ec 10          	sub    $0x10,%rsp
+  40112e:	bf 10 20 40 00       	mov    $0x402010,%edi
+  401133:	b8 00 00 00 00       	mov    $0x0,%eax
+  401138:	e8 f3 fe ff ff       	callq  401030 <printf@plt>
+  40113d:	bf 0a 00 00 00       	mov    $0xa,%edi
+  401142:	e8 35 00 00 00       	callq  40117c <factorial>
+  401147:	bf 0a 00 00 00       	mov    $0xa,%edi
+  40114c:	e8 7a 00 00 00       	callq  4011cb <fibonacci>
+  401151:	be 14 00 00 00       	mov    $0x14,%esi
+  401156:	bf 0a 00 00 00       	mov    $0xa,%edi
+  40115b:	e8 cf 00 00 00       	callq  40122f <max>
+  401160:	89 45 fc             	mov    %eax,-0x4(%rbp)
+  401163:	be 14 00 00 00       	mov    $0x14,%esi
+  401168:	bf 0a 00 00 00       	mov    $0xa,%edi
+  40116d:	e8 a3 00 00 00       	callq  401215 <add>
+  401172:	89 45 f8             	mov    %eax,-0x8(%rbp)
+  401175:	b8 00 00 00 00       	mov    $0x0,%eax
+  40117a:	c9                   	leaveq 
+  40117b:	c3                   	retq   
 
-000000000040114b <add>:
-  40114b:	55                   	push   %rbp
-  40114c:	48 89 e5             	mov    %rsp,%rbp
-  40114f:	89 7d ec             	mov    %edi,-0x14(%rbp)
-  401152:	89 75 e8             	mov    %esi,-0x18(%rbp)
-  401155:	8b 55 ec             	mov    -0x14(%rbp),%edx
-  401158:	8b 45 e8             	mov    -0x18(%rbp),%eax
-  40115b:	01 d0                	add    %edx,%eax
-  40115d:	89 45 fc             	mov    %eax,-0x4(%rbp)
-  401160:	8b 45 fc             	mov    -0x4(%rbp),%eax
-  401163:	5d                   	pop    %rbp
-  401164:	c3                   	retq   
+000000000040117c <factorial>:
+  40117c:	55                   	push   %rbp
+  40117d:	48 89 e5             	mov    %rsp,%rbp
+  401180:	48 83 ec 20          	sub    $0x20,%rsp
+  401184:	89 7d ec             	mov    %edi,-0x14(%rbp)
+  401187:	c7 45 f8 01 00 00 00 	movl   $0x1,-0x8(%rbp)
+  40118e:	c7 45 fc 01 00 00 00 	movl   $0x1,-0x4(%rbp)
+  401195:	eb 0e                	jmp    4011a5 <factorial+0x29>
+  401197:	8b 45 f8             	mov    -0x8(%rbp),%eax
+  40119a:	0f af 45 fc          	imul   -0x4(%rbp),%eax
+  40119e:	89 45 f8             	mov    %eax,-0x8(%rbp)
+  4011a1:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+  4011a5:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  4011a8:	3b 45 ec             	cmp    -0x14(%rbp),%eax
+  4011ab:	7e ea                	jle    401197 <factorial+0x1b>
+  4011ad:	8b 55 f8             	mov    -0x8(%rbp),%edx
+  4011b0:	8b 45 ec             	mov    -0x14(%rbp),%eax
+  4011b3:	89 c6                	mov    %eax,%esi
+  4011b5:	bf 1e 20 40 00       	mov    $0x40201e,%edi
+  4011ba:	b8 00 00 00 00       	mov    $0x0,%eax
+  4011bf:	e8 6c fe ff ff       	callq  401030 <printf@plt>
+  4011c4:	b8 00 00 00 00       	mov    $0x0,%eax
+  4011c9:	c9                   	leaveq 
+  4011ca:	c3                   	retq   
 
-0000000000401165 <main>:
-  401165:	55                   	push   %rbp
-  401166:	48 89 e5             	mov    %rsp,%rbp
-  401169:	48 83 ec 10          	sub    $0x10,%rsp
-  40116d:	bf 10 20 40 00       	mov    $0x402010,%edi
-  401172:	b8 00 00 00 00       	mov    $0x0,%eax
-  401177:	e8 b4 fe ff ff       	callq  401030 <printf@plt>
-  40117c:	bf 0a 00 00 00       	mov    $0xa,%edi
-  401181:	e8 35 00 00 00       	callq  4011bb <factorial>
-  401186:	bf 0a 00 00 00       	mov    $0xa,%edi
-  40118b:	e8 7a 00 00 00       	callq  40120a <fibonacci>
-  401190:	be 14 00 00 00       	mov    $0x14,%esi
-  401195:	bf 0a 00 00 00       	mov    $0xa,%edi
-  40119a:	e8 87 ff ff ff       	callq  401126 <max>
-  40119f:	89 45 fc             	mov    %eax,-0x4(%rbp)
-  4011a2:	be 14 00 00 00       	mov    $0x14,%esi
-  4011a7:	bf 0a 00 00 00       	mov    $0xa,%edi
-  4011ac:	e8 9a ff ff ff       	callq  40114b <add>
-  4011b1:	89 45 f8             	mov    %eax,-0x8(%rbp)
-  4011b4:	b8 00 00 00 00       	mov    $0x0,%eax
-  4011b9:	c9                   	leaveq 
-  4011ba:	c3                   	retq   
+00000000004011cb <fibonacci>:
+  4011cb:	55                   	push   %rbp
+  4011cc:	48 89 e5             	mov    %rsp,%rbp
+  4011cf:	53                   	push   %rbx
+  4011d0:	48 83 ec 18          	sub    $0x18,%rsp
+  4011d4:	89 7d ec             	mov    %edi,-0x14(%rbp)
+  4011d7:	83 7d ec 00          	cmpl   $0x0,-0x14(%rbp)
+  4011db:	75 07                	jne    4011e4 <fibonacci+0x19>
+  4011dd:	b8 00 00 00 00       	mov    $0x0,%eax
+  4011e2:	eb 2b                	jmp    40120f <fibonacci+0x44>
+  4011e4:	83 7d ec 01          	cmpl   $0x1,-0x14(%rbp)
+  4011e8:	75 07                	jne    4011f1 <fibonacci+0x26>
+  4011ea:	b8 01 00 00 00       	mov    $0x1,%eax
+  4011ef:	eb 1e                	jmp    40120f <fibonacci+0x44>
+  4011f1:	8b 45 ec             	mov    -0x14(%rbp),%eax
+  4011f4:	83 e8 01             	sub    $0x1,%eax
+  4011f7:	89 c7                	mov    %eax,%edi
+  4011f9:	e8 cd ff ff ff       	callq  4011cb <fibonacci>
+  4011fe:	89 c3                	mov    %eax,%ebx
+  401200:	8b 45 ec             	mov    -0x14(%rbp),%eax
+  401203:	83 e8 02             	sub    $0x2,%eax
+  401206:	89 c7                	mov    %eax,%edi
+  401208:	e8 be ff ff ff       	callq  4011cb <fibonacci>
+  40120d:	01 d8                	add    %ebx,%eax
+  40120f:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
+  401213:	c9                   	leaveq 
+  401214:	c3                   	retq   
 
-00000000004011bb <factorial>:
-  4011bb:	55                   	push   %rbp
-  4011bc:	48 89 e5             	mov    %rsp,%rbp
-  4011bf:	48 83 ec 20          	sub    $0x20,%rsp
-  4011c3:	89 7d ec             	mov    %edi,-0x14(%rbp)
-  4011c6:	c7 45 f8 01 00 00 00 	movl   $0x1,-0x8(%rbp)
-  4011cd:	c7 45 fc 01 00 00 00 	movl   $0x1,-0x4(%rbp)
-  4011d4:	eb 0e                	jmp    4011e4 <factorial+0x29>
-  4011d6:	8b 45 f8             	mov    -0x8(%rbp),%eax
-  4011d9:	0f af 45 fc          	imul   -0x4(%rbp),%eax
-  4011dd:	89 45 f8             	mov    %eax,-0x8(%rbp)
-  4011e0:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
-  4011e4:	8b 45 fc             	mov    -0x4(%rbp),%eax
-  4011e7:	3b 45 ec             	cmp    -0x14(%rbp),%eax
-  4011ea:	7e ea                	jle    4011d6 <factorial+0x1b>
-  4011ec:	8b 55 f8             	mov    -0x8(%rbp),%edx
-  4011ef:	8b 45 ec             	mov    -0x14(%rbp),%eax
-  4011f2:	89 c6                	mov    %eax,%esi
-  4011f4:	bf 1e 20 40 00       	mov    $0x40201e,%edi
-  4011f9:	b8 00 00 00 00       	mov    $0x0,%eax
-  4011fe:	e8 2d fe ff ff       	callq  401030 <printf@plt>
-  401203:	b8 00 00 00 00       	mov    $0x0,%eax
-  401208:	c9                   	leaveq 
-  401209:	c3                   	retq   
+0000000000401215 <add>:
+  401215:	55                   	push   %rbp
+  401216:	48 89 e5             	mov    %rsp,%rbp
+  401219:	89 7d ec             	mov    %edi,-0x14(%rbp)
+  40121c:	89 75 e8             	mov    %esi,-0x18(%rbp)
+  40121f:	8b 55 ec             	mov    -0x14(%rbp),%edx
+  401222:	8b 45 e8             	mov    -0x18(%rbp),%eax
+  401225:	01 d0                	add    %edx,%eax
+  401227:	89 45 fc             	mov    %eax,-0x4(%rbp)
+  40122a:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  40122d:	5d                   	pop    %rbp
+  40122e:	c3                   	retq   
 
-000000000040120a <fibonacci>:
-  40120a:	55                   	push   %rbp
-  40120b:	48 89 e5             	mov    %rsp,%rbp
-  40120e:	53                   	push   %rbx
-  40120f:	48 83 ec 18          	sub    $0x18,%rsp
-  401213:	89 7d ec             	mov    %edi,-0x14(%rbp)
-  401216:	83 7d ec 00          	cmpl   $0x0,-0x14(%rbp)
-  40121a:	75 07                	jne    401223 <fibonacci+0x19>
-  40121c:	b8 00 00 00 00       	mov    $0x0,%eax
-  401221:	eb 2b                	jmp    40124e <fibonacci+0x44>
-  401223:	83 7d ec 01          	cmpl   $0x1,-0x14(%rbp)
-  401227:	75 07                	jne    401230 <fibonacci+0x26>
-  401229:	b8 01 00 00 00       	mov    $0x1,%eax
-  40122e:	eb 1e                	jmp    40124e <fibonacci+0x44>
-  401230:	8b 45 ec             	mov    -0x14(%rbp),%eax
-  401233:	83 e8 01             	sub    $0x1,%eax
-  401236:	89 c7                	mov    %eax,%edi
-  401238:	e8 cd ff ff ff       	callq  40120a <fibonacci>
-  40123d:	89 c3                	mov    %eax,%ebx
-  40123f:	8b 45 ec             	mov    -0x14(%rbp),%eax
-  401242:	83 e8 02             	sub    $0x2,%eax
-  401245:	89 c7                	mov    %eax,%edi
-  401247:	e8 be ff ff ff       	callq  40120a <fibonacci>
-  40124c:	01 d8                	add    %ebx,%eax
-  40124e:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
-  401252:	c9                   	leaveq 
-  401253:	c3                   	retq   
-  401254:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
-  40125b:	00 00 00 
-  40125e:	66 90                	xchg   %ax,%ax
+000000000040122f <max>:
+  40122f:	55                   	push   %rbp
+  401230:	48 89 e5             	mov    %rsp,%rbp
+  401233:	89 7d fc             	mov    %edi,-0x4(%rbp)
+  401236:	89 75 f8             	mov    %esi,-0x8(%rbp)
+  401239:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  40123c:	3b 45 f8             	cmp    -0x8(%rbp),%eax
+  40123f:	7e 05                	jle    401246 <max+0x17>
+  401241:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  401244:	eb 03                	jmp    401249 <max+0x1a>
+  401246:	8b 45 f8             	mov    -0x8(%rbp),%eax
+  401249:	5d                   	pop    %rbp
+  40124a:	c3                   	retq   
+  40124b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
-0000000000401260 <__libc_csu_init>:
-  401260:	f3 0f 1e fa          	endbr64 
-  401264:	41 57                	push   %r15
-  401266:	4c 8d 3d a3 2b 00 00 	lea    0x2ba3(%rip),%r15        # 403e10 <__frame_dummy_init_array_entry>
-  40126d:	41 56                	push   %r14
-  40126f:	49 89 d6             	mov    %rdx,%r14
-  401272:	41 55                	push   %r13
-  401274:	49 89 f5             	mov    %rsi,%r13
-  401277:	41 54                	push   %r12
-  401279:	41 89 fc             	mov    %edi,%r12d
-  40127c:	55                   	push   %rbp
-  40127d:	48 8d 2d 94 2b 00 00 	lea    0x2b94(%rip),%rbp        # 403e18 <__do_global_dtors_aux_fini_array_entry>
-  401284:	53                   	push   %rbx
-  401285:	4c 29 fd             	sub    %r15,%rbp
-  401288:	48 83 ec 08          	sub    $0x8,%rsp
-  40128c:	e8 6f fd ff ff       	callq  401000 <_init>
-  401291:	48 c1 fd 03          	sar    $0x3,%rbp
-  401295:	74 1f                	je     4012b6 <__libc_csu_init+0x56>
-  401297:	31 db                	xor    %ebx,%ebx
-  401299:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-  4012a0:	4c 89 f2             	mov    %r14,%rdx
-  4012a3:	4c 89 ee             	mov    %r13,%rsi
-  4012a6:	44 89 e7             	mov    %r12d,%edi
-  4012a9:	41 ff 14 df          	callq  *(%r15,%rbx,8)
-  4012ad:	48 83 c3 01          	add    $0x1,%rbx
-  4012b1:	48 39 dd             	cmp    %rbx,%rbp
-  4012b4:	75 ea                	jne    4012a0 <__libc_csu_init+0x40>
-  4012b6:	48 83 c4 08          	add    $0x8,%rsp
-  4012ba:	5b                   	pop    %rbx
-  4012bb:	5d                   	pop    %rbp
-  4012bc:	41 5c                	pop    %r12
-  4012be:	41 5d                	pop    %r13
-  4012c0:	41 5e                	pop    %r14
-  4012c2:	41 5f                	pop    %r15
+0000000000401250 <__libc_csu_init>:
+  401250:	f3 0f 1e fa          	endbr64 
+  401254:	41 57                	push   %r15
+  401256:	4c 8d 3d b3 2b 00 00 	lea    0x2bb3(%rip),%r15        # 403e10 <__frame_dummy_init_array_entry>
+  40125d:	41 56                	push   %r14
+  40125f:	49 89 d6             	mov    %rdx,%r14
+  401262:	41 55                	push   %r13
+  401264:	49 89 f5             	mov    %rsi,%r13
+  401267:	41 54                	push   %r12
+  401269:	41 89 fc             	mov    %edi,%r12d
+  40126c:	55                   	push   %rbp
+  40126d:	48 8d 2d a4 2b 00 00 	lea    0x2ba4(%rip),%rbp        # 403e18 <__do_global_dtors_aux_fini_array_entry>
+  401274:	53                   	push   %rbx
+  401275:	4c 29 fd             	sub    %r15,%rbp
+  401278:	48 83 ec 08          	sub    $0x8,%rsp
+  40127c:	e8 7f fd ff ff       	callq  401000 <_init>
+  401281:	48 c1 fd 03          	sar    $0x3,%rbp
+  401285:	74 1f                	je     4012a6 <__libc_csu_init+0x56>
+  401287:	31 db                	xor    %ebx,%ebx
+  401289:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+  401290:	4c 89 f2             	mov    %r14,%rdx
+  401293:	4c 89 ee             	mov    %r13,%rsi
+  401296:	44 89 e7             	mov    %r12d,%edi
+  401299:	41 ff 14 df          	callq  *(%r15,%rbx,8)
+  40129d:	48 83 c3 01          	add    $0x1,%rbx
+  4012a1:	48 39 dd             	cmp    %rbx,%rbp
+  4012a4:	75 ea                	jne    401290 <__libc_csu_init+0x40>
+  4012a6:	48 83 c4 08          	add    $0x8,%rsp
+  4012aa:	5b                   	pop    %rbx
+  4012ab:	5d                   	pop    %rbp
+  4012ac:	41 5c                	pop    %r12
+  4012ae:	41 5d                	pop    %r13
+  4012b0:	41 5e                	pop    %r14
+  4012b2:	41 5f                	pop    %r15
+  4012b4:	c3                   	retq   
+  4012b5:	66 66 2e 0f 1f 84 00 	data16 nopw %cs:0x0(%rax,%rax,1)
+  4012bc:	00 00 00 00 
+
+00000000004012c0 <__libc_csu_fini>:
+  4012c0:	f3 0f 1e fa          	endbr64 
   4012c4:	c3                   	retq   
-  4012c5:	66 66 2e 0f 1f 84 00 	data16 nopw %cs:0x0(%rax,%rax,1)
-  4012cc:	00 00 00 00 
-
-00000000004012d0 <__libc_csu_fini>:
-  4012d0:	f3 0f 1e fa          	endbr64 
-  4012d4:	c3                   	retq   
 
 Disassembly of section .fini:
 
-00000000004012d8 <_fini>:
-  4012d8:	f3 0f 1e fa          	endbr64 
-  4012dc:	48 83 ec 08          	sub    $0x8,%rsp
-  4012e0:	48 83 c4 08          	add    $0x8,%rsp
-  4012e4:	c3                   	retq   
+00000000004012c8 <_fini>:
+  4012c8:	f3 0f 1e fa          	endbr64 
+  4012cc:	48 83 ec 08          	sub    $0x8,%rsp
+  4012d0:	48 83 c4 08          	add    $0x8,%rsp
+  4012d4:	c3                   	retq   

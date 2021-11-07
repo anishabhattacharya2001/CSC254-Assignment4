@@ -81,32 +81,61 @@ file_names[ 26]:
 
 Address            Line   Column File   ISA Discriminator Flags
 ------------------ ------ ------ ------ --- ------------- -------------
-0x0000000000401165      7     12      1   0             0  is_stmt
-0x000000000040116d      8      4      1   0             0  is_stmt
-0x000000000040117c      9      4      1   0             0  is_stmt
-0x0000000000401186     10      4      1   0             0  is_stmt
-0x0000000000401190     11     17      1   0             0  is_stmt
-0x00000000004011a2     12     14      1   0             0  is_stmt
-0x00000000004011b4     13     11      1   0             0  is_stmt
-0x00000000004011b9     14      1      1   0             0  is_stmt
-0x00000000004011bb     17     26      1   0             0  is_stmt
-0x00000000004011c6     19      6      1   0             0  is_stmt
-0x00000000004011cd     20     10      1   0             0  is_stmt
-0x00000000004011d4     20      5      1   0             0  is_stmt
-0x00000000004011d6     21      8      1   0             3  is_stmt
-0x00000000004011e0     20     24      1   0             3  is_stmt
-0x00000000004011e4     20     14      1   0             1  is_stmt
-0x00000000004011ec     23      3      1   0             0  is_stmt
-0x0000000000401203     24      8      1   0             0  is_stmt
-0x0000000000401208     25      1      1   0             0  is_stmt
-0x000000000040120a     28     22      1   0             0  is_stmt
-0x0000000000401216     29      6      1   0             0  is_stmt
-0x000000000040121c     30     14      1   0             0  is_stmt
-0x0000000000401223     32      6      1   0             0  is_stmt
-0x0000000000401229     33     14      1   0             0  is_stmt
-0x0000000000401230     35     11      1   0             0  is_stmt
-0x000000000040123f     35     28      1   0             0  is_stmt
-0x000000000040124c     35     26      1   0             0  is_stmt
-0x000000000040124e     36      1      1   0             0  is_stmt
-0x0000000000401254     36      1      1   0             0  is_stmt end_sequence
+0x0000000000401126      7     12      1   0             0  is_stmt
+0x000000000040112e      8      4      1   0             0  is_stmt
+0x000000000040113d      9      4      1   0             0  is_stmt
+0x0000000000401147     10      4      1   0             0  is_stmt
+0x0000000000401151     11     17      1   0             0  is_stmt
+0x0000000000401163     12     14      1   0             0  is_stmt
+0x0000000000401175     13     11      1   0             0  is_stmt
+0x000000000040117a     14      1      1   0             0  is_stmt
+0x000000000040117c     17     26      1   0             0  is_stmt
+0x0000000000401187     19      6      1   0             0  is_stmt
+0x000000000040118e     20     10      1   0             0  is_stmt
+0x0000000000401195     20      5      1   0             0  is_stmt
+0x0000000000401197     21      8      1   0             3  is_stmt
+0x00000000004011a1     20     24      1   0             3  is_stmt
+0x00000000004011a5     20     14      1   0             1  is_stmt
+0x00000000004011ad     23      3      1   0             0  is_stmt
+0x00000000004011c4     24      8      1   0             0  is_stmt
+0x00000000004011c9     25      1      1   0             0  is_stmt
+0x00000000004011cb     28     22      1   0             0  is_stmt
+0x00000000004011d7     29      6      1   0             0  is_stmt
+0x00000000004011dd     30     14      1   0             0  is_stmt
+0x00000000004011e4     32      6      1   0             0  is_stmt
+0x00000000004011ea     33     14      1   0             0  is_stmt
+0x00000000004011f1     35     11      1   0             0  is_stmt
+0x0000000000401200     35     28      1   0             0  is_stmt
+0x000000000040120d     35     26      1   0             0  is_stmt
+0x000000000040120f     36      1      1   0             0  is_stmt
+0x0000000000401215     36      1      1   0             0  is_stmt end_sequence
 
+debug_line[0x00000137]
+Line table prologue:
+    total_length: 0x00000069
+          format: DWARF32
+         version: 5
+    address_size: 8
+ seg_select_size: 0
+ prologue_length: 0x00000038
+ min_inst_length: 1
+max_ops_per_inst: 1
+ default_is_stmt: 1
+       line_base: -5
+      line_range: 14
+     opcode_base: 13
+standard_opcode_lengths[DW_LNS_copy] = 0
+standard_opcode_lengths[DW_LNS_advance_pc] = 1
+standard_opcode_lengths[DW_LNS_advance_line] = 1
+standard_opcode_lengths[DW_LNS_set_file] = 1
+standard_opcode_lengths[DW_LNS_set_column] = 1
+standard_opcode_lengths[DW_LNS_negate_stmt] = 0
+standard_opcode_lengths[DW_LNS_set_basic_block] = 0
+standard_opcode_lengths[DW_LNS_const_add_pc] = 0
+standard_opcode_lengths[DW_LNS_fixed_advance_pc] = 1
+standard_opcode_lengths[DW_LNS_set_prologue_end] = 0
+standard_opcode_lengths[DW_LNS_set_epilogue_begin] = 0
+standard_opcode_lengths[DW_LNS_set_isa] = 1
+include_directories[  0] = "/u/abhatta9/CSC254-Assignment4"
+include_directories[  1] = "/usr/include"
+file_names[  0]:
