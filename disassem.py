@@ -49,18 +49,25 @@ with open('llvmoutput.txt', 'r+') as f:
             filename.append(fn)
         
         if i == len(lines)-1:
-            fileandtable[fn] = tablecontent
+            fileandtable[fn] = tablecontent          
 
 #put the dwarfdump output of each file into a separate text file
 for i in range( len(filename) ):
     file = open(filename[i]+"output.txt", "w")
     file.writelines(fileandtable.get(filename[i]))
 
+
+print("hllo")
+with open('hello2.coutput.txt', 'r') as read:
+    for line in read:
+        print(line)
+
+
 def everything(filen):
     # dictionaries 
     hexa_to_linenum = {}
     linenum_to_hex = {}
-    with open(filen+'output.txt', 'r') as read_file:
+    with open(filen +'output.txt', 'r') as read_file:
         for line in read_file:
             parts = line.split()
             if(len(parts) > 0):
@@ -70,6 +77,8 @@ def everything(filen):
                     linenum_to_hex[parts[1]] = key.lstrip('0')
     list_hexa = sorted(hexa_to_linenum)
 
+    # print("hexa to line")
+    # print(hexa_to_linenum)
     line_to_assembly = {}
     #dict with line number to the assembly code
     with open('objdumpoutput.txt', 'r') as read_file:
@@ -79,7 +88,7 @@ def everything(filen):
                 key = parts[0].replace(':', '')
                 if(key in hexa_to_linenum ):
                     line_to_assembly[hexa_to_linenum.get(key)] = parts
-
+    # print(line_to_assembly)
     # reading obj and creating dict with adresses and the assembly code
     Assembly = {}
     with open('objdumpoutput.txt', 'r') as read_file:
@@ -98,6 +107,8 @@ def everything(filen):
     for i in range( len(list_hexa) - 1 ):
         nlist = [list_hexa[i], list_hexa[i + 1] ]
         assembly_Array[ hexa_to_linenum.get(list_hexa[i]) ] = nlist
+    # print("Array")
+    # print(assembly_Array)
 
     # creating the dict with C line and the associated Assembly code
     Line_to_Addresses = {}
@@ -110,15 +121,15 @@ def everything(filen):
             if(Assembly_Addresses[i] >= start and Assembly_Addresses[i] < end ):
                 ek_list.append(Assembly_Addresses[i])
         Line_to_Addresses[key] = ek_list
-
-    #print(Line_to_Addresses)
+    # print("LINE to address for "+filen)
+    # print(Line_to_Addresses)
     #print(Assembly_Addresses)
 
 
 
     line_to_cCode = {}
     i = 1
-    with open('hello.c', 'r') as read_file:
+    with open(filen, 'r') as read_file:
         for line in read_file:
             if(line != '\n'):
                 line_to_cCode[i] = line
@@ -130,7 +141,7 @@ def everything(filen):
     # code : list of list of list
     Final_C_to_Assembly = {}
     i = 1
-    with open('hello.c', 'r') as read_file:
+    with open(filen, 'r') as read_file:
         for line in read_file:
             answer = []
             if(not(str(i) in Line_to_Addresses)):
@@ -144,8 +155,6 @@ def everything(filen):
                 Final_C_to_Assembly[line_to_cCode.get(i)] = answer
             i = i + 1   
 
-    print ("C TO ASS")
-    print(Final_C_to_Assembly) 
 
     # Function to convert   
     def listToString(lis):    
@@ -199,7 +208,6 @@ def everything(filen):
     htmlcode += "</body> \n </html>"
     fileout.writelines(htmlcode)
     fileout.close()
-
 
 
 for filen in filename:
