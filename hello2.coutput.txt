@@ -1,0 +1,60 @@
+           name: "hello2.c"
+      dir_index: 0
+file_names[  1]:
+           name: "hello2.c"
+      dir_index: 0
+file_names[  2]:
+           name: "stdc-predef.h"
+      dir_index: 1
+file_names[  3]:
+           name: "hello2.h"
+      dir_index: 0
+
+Address            Line   Column File   ISA Discriminator Flags
+------------------ ------ ------ ------ --- ------------- -------------
+0x0000000000401126      3     29      1   0             0  is_stmt
+0x0000000000401130      5      7      1   0             0  is_stmt
+0x0000000000401138      6     14      1   0             0  is_stmt
+0x0000000000401140      8     14      1   0             0  is_stmt
+0x0000000000401146      9     11      1   0             0  is_stmt
+0x0000000000401149     10      1      1   0             0  is_stmt
+0x000000000040114b     12      1      1   0             0  is_stmt
+0x0000000000401155     13      9      1   0             0  is_stmt
+0x0000000000401160     14     12      1   0             0  is_stmt
+0x0000000000401163     15      1      1   0             0  is_stmt
+0x0000000000401165     15      1      1   0             0  is_stmt end_sequence
+
+debug_line[0x0000006e]
+Line table prologue:
+    total_length: 0x00000133
+          format: DWARF32
+         version: 5
+    address_size: 8
+ seg_select_size: 0
+ prologue_length: 0x000000bf
+ min_inst_length: 1
+max_ops_per_inst: 1
+ default_is_stmt: 1
+       line_base: -5
+      line_range: 14
+     opcode_base: 13
+standard_opcode_lengths[DW_LNS_copy] = 0
+standard_opcode_lengths[DW_LNS_advance_pc] = 1
+standard_opcode_lengths[DW_LNS_advance_line] = 1
+standard_opcode_lengths[DW_LNS_set_file] = 1
+standard_opcode_lengths[DW_LNS_set_column] = 1
+standard_opcode_lengths[DW_LNS_negate_stmt] = 0
+standard_opcode_lengths[DW_LNS_set_basic_block] = 0
+standard_opcode_lengths[DW_LNS_const_add_pc] = 0
+standard_opcode_lengths[DW_LNS_fixed_advance_pc] = 1
+standard_opcode_lengths[DW_LNS_set_prologue_end] = 0
+standard_opcode_lengths[DW_LNS_set_epilogue_begin] = 0
+standard_opcode_lengths[DW_LNS_set_isa] = 1
+include_directories[  0] = "/u/abhatta9/CSC254-Assignment4"
+include_directories[  1] = "/usr/include"
+include_directories[  2] = "/usr/include/bits"
+include_directories[  3] = "/usr/include/sys"
+include_directories[  4] = "/usr/include/gnu"
+include_directories[  5] = "/usr/lib/gcc/x86_64-redhat-linux/11/include"
+include_directories[  6] = "/usr/include/bits/types"
+file_names[  0]:

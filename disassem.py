@@ -29,7 +29,7 @@ fileandtable = {}
 #this is a dictionary that will hold the file name and the corresponding llvmdwarfdump table
 flag = 0
 tablecontent = ""
-nex = ""
+fn = ""
 with open('llvmoutput.txt', 'r+') as f:
     lines = f.readlines()
     for i in range(0, len(lines)):
@@ -39,18 +39,28 @@ with open('llvmoutput.txt', 'r+') as f:
 
         if line == "file_names[  0]:\n":
             if flag == 1:
-                fileandtable[nex] = tablecontent
+                fileandtable[fn] = tablecontent
+                flag = 2
             flag = 1
             tablecontent = ""
-            nex = lines[i + 1] 
+            nex = lines[i + 1]
             parts = nex.split()
-            filename.append(parts[1].replace('"', ''))
-
-#put the dwarfdump output of each file into a separate text file
-#for i in range( len(filename) - 1 ):
-    
+            fn = parts[1].replace('"', '')
+            filename.append(fn)
+        
+        if i == len(lines)-1:
+            fileandtable[fn] = tablecontent
 
 print(fileandtable)
+print(filename)
+
+#put the dwarfdump output of each file into a separate text file
+for i in range( len(filename) ):
+    file = open(filename[i]+"output.txt", "w")
+    file.writelines(fileandtable.get(filename[i]))
+    #print(fileandtable.get(filename[i]))
+
+#print(fileandtable)
 
             
 # dictionaries 
@@ -206,7 +216,6 @@ for key, value in Final_C_to_Assembly.items():
     ass = " <td>"
     for assemblyLineList in value:
         ass += listToString(assemblyLineList)
-        #print( "ASS IS "+ass)
         ass += '\n<br>'
     ass += "</td>"
     table += ass
