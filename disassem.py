@@ -20,9 +20,23 @@ llvm_file.close()
 hexa_Pattern = re.compile("(\d|a|b|c|d|e|f){16}")
 
 hexa = re.compile("0x[0-9a-f]{16}")
-diwali = re.compile("[0-9a-f]")
+small_hexa = re.compile("[0-9a-f]")
 
+#need to take care of multiple files
+#find the file names that exist
+filename = []
+with open('llvmoutput.txt', 'r+') as f:
+    lines = f.readlines()
+    for i in range(0, len(lines)):
+        line = lines[i]
+        if line == "file_names[  0]:\n":
+            nex = lines[i + 1] 
+            parts = nex.split()
+            filename.append(parts[1].replace('"', ''))
 
+print(filename)
+
+            
 # dictionaries 
 hexa_to_linenum = {}
 linenum_to_hex = {}
@@ -63,7 +77,7 @@ with open('objdumpoutput.txt', 'r') as read_file:
     for line in read_file:
         parts = line.split()
         if(len(parts) > 0):
-            if(diwali.match(parts[0])):
+            if(small_hexa.match(parts[0])):
                 key = parts[0].replace(':', '')
                 Assembly[key] = parts
 Assembly_Addresses = sorted(Assembly)
@@ -112,7 +126,7 @@ with open('hello.c', 'r') as read_file:
         answer = []
         if(not(str(i) in Line_to_Addresses)):
             if(line != "\n"):
-                answer.append("No Assembly code reference found for this source")
+                answer.append("No Assembly code reference found for this source")      
         else:
             list = Line_to_Addresses.get(str(i))
             for j in range(len(list)):
@@ -121,23 +135,25 @@ with open('hello.c', 'r') as read_file:
             Final_C_to_Assembly[line_to_cCode.get(i)] = answer
         i = i + 1   
         
-print(Final_C_to_Assembly) 
+#print(Final_C_to_Assembly) 
 
 
-_file = open('output.txt', 'w')
-for key in Final_C_to_Assembly:
-    dArray = Final_C_to_Assembly.get(key)
-    li2 = [ y for x in dArray for y in x]
-    ans = ''.join(li2)
-    _file.write( key + ans)
-    _file.write('\n')
-    _file.write('\n')
-    _file.write('\n')
-_file.close()
+# _file = open('output.txt', 'w')
+# for key in Final_C_to_Assembly:
+#     dArray = Final_C_to_Assembly.get(key)
+#     li2 = [ y for x in dArray for y in x]
+#     ans = ''.join(li2)
+#     _file.write( key + ans)
+#     _file.write('\n')
+#     _file.write('\n')
+#     _file.write('\n')
+# _file.close()
 
 # Function to convert   
 def listToString(lis):    
-    s = ""  
+    s = ""
+    if(lis is "No Assembly code reference found for this source"):
+        return "No Assembly code reference found for this source"
     for ele in lis:  
         s += ele
         s += " "        
@@ -154,7 +170,7 @@ path = os.path.dirname(os.path.realpath(__file__))
 #indexFile.write("<html><head><title>CSC254</title></head><body><h1>Disassemble<h1><table style="width:100%"><tr><th>Source</th><th>Assessmbly</th></tr></table></body></html>")
 
 
-fileout = open("html-table.html", "w")
+fileout = open("index.html", "w")
 
 htmlcode = "<html> \n <style>\n"
 htmlcode += "table, th, td {border:1px solid black;}\n </style>"
@@ -174,7 +190,7 @@ for key, value in Final_C_to_Assembly.items():
     ass = " <td>"
     for assemblyLineList in value:
         ass += listToString(assemblyLineList)
-        print( "ASS IS "+ass)
+        #print( "ASS IS "+ass)
         ass += '\n<br>'
     ass += "</td>"
     table += ass
