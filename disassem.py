@@ -25,16 +25,32 @@ small_hexa = re.compile("[0-9a-f]")
 #need to take care of multiple files
 #find the file names that exist
 filename = []
+fileandtable = {}
+#this is a dictionary that will hold the file name and the corresponding llvmdwarfdump table
+flag = 0
+tablecontent = ""
+nex = ""
 with open('llvmoutput.txt', 'r+') as f:
     lines = f.readlines()
     for i in range(0, len(lines)):
         line = lines[i]
+        if flag == 1:
+            tablecontent +=line
+
         if line == "file_names[  0]:\n":
+            if flag == 1:
+                fileandtable[nex] = tablecontent
+            flag = 1
+            tablecontent = ""
             nex = lines[i + 1] 
             parts = nex.split()
             filename.append(parts[1].replace('"', ''))
 
-print(filename)
+#put the dwarfdump output of each file into a separate text file
+#for i in range( len(filename) - 1 ):
+    
+
+print(fileandtable)
 
             
 # dictionaries 
