@@ -51,34 +51,35 @@ with open('llvmoutput.txt', 'r+') as f:
         if i == len(lines)-1:
             fileandtable[fn] = tablecontent          
 
+arrTables = []
 #put the dwarfdump output of each file into a separate text file
 for i in range( len(filename) ):
     file = open(filename[i]+"output.txt", "w")
     file.writelines(fileandtable.get(filename[i]))
+    arrTables.append(fileandtable.get(filename[i]))
 
 
-print("hllo")
-with open('hello2.coutput.txt', 'r') as read:
-    for line in read:
-        print(line)
 
-
-def everything(filen):
+def everything(filen, n):
     # dictionaries 
     hexa_to_linenum = {}
     linenum_to_hex = {}
-    with open(filen +'output.txt', 'r') as read_file:
-        for line in read_file:
-            parts = line.split()
-            if(len(parts) > 0):
-                if(hexa.match(parts[0])):
-                    key = parts[0].replace('0x', '')
-                    hexa_to_linenum[key.lstrip('0')] = parts[1]
-                    linenum_to_hex[parts[1]] = key.lstrip('0')
+
+    for i in range(len(arrTables)):
+        table = arrTables[i]
+        if i==n:
+            line = table.splitlines()
+            for l in line:
+                parts = l.split()
+                if(len(parts) > 0):
+                    if(hexa.match(parts[0])):
+                        key = parts[0].replace('0x', '')
+                        hexa_to_linenum[key.lstrip('0')] = parts[1]
+                        linenum_to_hex[parts[1]] = key.lstrip('0')
+            
     list_hexa = sorted(hexa_to_linenum)
 
-    # print("hexa to line")
-    # print(hexa_to_linenum)
+
     line_to_assembly = {}
     #dict with line number to the assembly code
     with open('objdumpoutput.txt', 'r') as read_file:
@@ -88,8 +89,8 @@ def everything(filen):
                 key = parts[0].replace(':', '')
                 if(key in hexa_to_linenum ):
                     line_to_assembly[hexa_to_linenum.get(key)] = parts
-    # print(line_to_assembly)
-    # reading obj and creating dict with adresses and the assembly code
+
+
     Assembly = {}
     with open('objdumpoutput.txt', 'r') as read_file:
         for line in read_file:
@@ -107,8 +108,6 @@ def everything(filen):
     for i in range( len(list_hexa) - 1 ):
         nlist = [list_hexa[i], list_hexa[i + 1] ]
         assembly_Array[ hexa_to_linenum.get(list_hexa[i]) ] = nlist
-    # print("Array")
-    # print(assembly_Array)
 
     # creating the dict with C line and the associated Assembly code
     Line_to_Addresses = {}
@@ -121,9 +120,7 @@ def everything(filen):
             if(Assembly_Addresses[i] >= start and Assembly_Addresses[i] < end ):
                 ek_list.append(Assembly_Addresses[i])
         Line_to_Addresses[key] = ek_list
-    # print("LINE to address for "+filen)
-    # print(Line_to_Addresses)
-    #print(Assembly_Addresses)
+
 
 
 
@@ -210,5 +207,6 @@ def everything(filen):
     fileout.close()
 
 
-for filen in filename:
-    everything(filen)
+for i in range(len(filename)):
+    filen = filename[i]
+    everything(filen, i)

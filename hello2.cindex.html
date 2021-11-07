@@ -14,37 +14,50 @@ table, th, td {border:1px solid black;}
  <tr> 
   <td>int add(int a, int b){
  </td> 
- <td>No Assembly code reference found for this source
+ <td>401215: 55 push %rbp 
+<br>401216: 48 89 e5 mov %rsp,%rbp 
+<br>401219: 89 7d ec mov %edi,-0x14(%rbp) 
+<br>40121c: 89 75 e8 mov %esi,-0x18(%rbp) 
 <br></td>  </tr>
  <tr> 
   <td>    int sum = a+b;
  </td> 
- <td>No Assembly code reference found for this source
+ <td>40121f: 8b 55 ec mov -0x14(%rbp),%edx 
+<br>401222: 8b 45 e8 mov -0x18(%rbp),%eax 
+<br>401225: 01 d0 add %edx,%eax 
+<br>401227: 89 45 fc mov %eax,-0x4(%rbp) 
 <br></td>  </tr>
  <tr> 
   <td>    return sum;
  </td> 
- <td>No Assembly code reference found for this source
+ <td>40122a: 8b 45 fc mov -0x4(%rbp),%eax 
 <br></td>  </tr>
  <tr> 
   <td>}
  </td> 
- <td>No Assembly code reference found for this source
+ <td>40122d: 5d pop %rbp 
+<br>40122e: c3 retq 
 <br></td>  </tr>
  <tr> 
   <td>int max(int a, int b){
  </td> 
- <td>No Assembly code reference found for this source
+ <td>40122f: 55 push %rbp 
+<br>401230: 48 89 e5 mov %rsp,%rbp 
+<br>401233: 89 7d fc mov %edi,-0x4(%rbp) 
+<br>401236: 89 75 f8 mov %esi,-0x8(%rbp) 
 <br></td>  </tr>
  <tr> 
   <td>    if( a > b){
  </td> 
- <td>No Assembly code reference found for this source
+ <td>401239: 8b 45 fc mov -0x4(%rbp),%eax 
+<br>40123c: 3b 45 f8 cmp -0x8(%rbp),%eax 
+<br>40123f: 7e 05 jle 401246 <max+0x17> 
 <br></td>  </tr>
  <tr> 
   <td>        return a;
  </td> 
- <td>No Assembly code reference found for this source
+ <td>401241: 8b 45 fc mov -0x4(%rbp),%eax 
+<br>401244: eb 03 jmp 401249 <max+0x1a> 
 <br></td>  </tr>
  <tr> 
   <td>    }
@@ -59,11 +72,12 @@ table, th, td {border:1px solid black;}
  <tr> 
   <td>        return b;
  </td> 
- <td>No Assembly code reference found for this source
+ <td>401246: 8b 45 f8 mov -0x8(%rbp),%eax 
 <br></td>  </tr>
  <tr> 
   <td>} </td> 
- <td>No Assembly code reference found for this source
+ <td>401249: 5d pop %rbp 
+<br>40124a: c3 retq 
 <br></td>  </tr>
 </table></body> 
  </html>
