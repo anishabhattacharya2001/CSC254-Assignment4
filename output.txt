@@ -1,8 +1,0 @@
-#include <stdio.h>
-No Assembly code reference found for this source
-
-
-#include "hello2.h"
-No Assembly code reference found for this source
-
-
